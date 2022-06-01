@@ -50,7 +50,8 @@ defmodule Desafiodev.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:credo, "~> 1.6"},
-      {:excoveralls, "~> 0.14.5"}
+      {:excoveralls, "~> 0.14.5"},
+      {:ex_machina, "~> 2.7"}
     ]
   end
 
