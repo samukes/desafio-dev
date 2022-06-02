@@ -8,9 +8,9 @@ defmodule Desafiodev.Reports.CnabTransaction do
   @derive {Jason.Encoder, only: @required_fields}
 
   embedded_schema do
-    field :type, Ecto.Enum, values: [:debito]
+    field :type, :string
     field :date, :naive_datetime
-    field :value, :float
+    field :balance, :float
     field :cpf, :string
     field :card, :string
     field :time, :naive_datetime
@@ -21,6 +21,17 @@ defmodule Desafiodev.Reports.CnabTransaction do
   def changeset(%CnabTransaction{} = struct, params) do
     struct
     |> cast(params, @required_fields)
-    |> validate_required(@required_fields)
+    |> validate_required(@required_fields -- [:type])
+    |> validate_inclusion(:type, [
+      "debito",
+      "boleto",
+      "financiamento",
+      "credito",
+      "recebimento_emprestimo",
+      "vendas",
+      "recebimento_ted",
+      "recebimento_doc",
+      "aluguel"
+    ])
   end
 end
