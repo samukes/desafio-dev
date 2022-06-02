@@ -58,7 +58,8 @@ defmodule Desafiodev.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:credo, "~> 1.6"},
       {:excoveralls, "~> 0.14.5"},
-      {:ex_machina, "~> 2.7"}
+      {:ex_machina, "~> 2.7"},
+      {:timex, "~> 3.7"}
     ]
   end
 
