@@ -1,5 +1,5 @@
 <section class="row">
-  <%= form_for @changeset, @action, [multipart: true], fn f -> %>
+  <%= form_for :cnab_transactions, Routes.page_path(DesafiodevWeb.Endpoint, :insert), [multipart: true], fn f -> %>
     <div class="form-group">
       <label>Photo</label>
       <%= file_input f, :cnab, class: "form-control" %>
