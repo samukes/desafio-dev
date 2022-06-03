@@ -18,6 +18,7 @@ defmodule DesafiodevWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    post "/insert", PageController, :insert
   end
 
   # Other scopes may use custom stacks.
