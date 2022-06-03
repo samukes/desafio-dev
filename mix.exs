@@ -59,7 +59,8 @@ defmodule Desafiodev.MixProject do
       {:credo, "~> 1.6"},
       {:excoveralls, "~> 0.14.5"},
       {:ex_machina, "~> 2.7"},
-      {:timex, "~> 3.7"}
+      {:timex, "~> 3.7"},
+      {:decimal, "~> 2.0"}
     ]
   end
 
