@@ -1,8 +1,8 @@
 <section class="row">
   <%= form_for :cnab_transactions, Routes.page_path(DesafiodevWeb.Endpoint, :insert), [multipart: true], fn f -> %>
     <div class="form-group">
-      <label>Photo</label>
-      <%= file_input f, :cnab, class: "form-control" %>
+      <label>Arquivo</label>
+      <%= file_input f, :file_cnab, class: "form-control" %>
     </div>
 
     <div class="form-group">
