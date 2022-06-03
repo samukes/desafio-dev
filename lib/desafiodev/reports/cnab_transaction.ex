@@ -4,7 +4,7 @@ defmodule Desafiodev.Reports.CnabTransaction do
 
   alias Desafiodev.Reports.CnabTransaction
 
-  @required_fields [:type, :value, :cpf, :card, :time, :owner, :company]
+  @required_fields [:type, :balance, :cpf, :card, :time, :owner, :company]
   @derive {Jason.Encoder, only: @required_fields}
 
   embedded_schema do

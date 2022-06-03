@@ -42,15 +42,14 @@ defmodule Desafiodev.Reports.Report do
     owner = String.slice(line, 48..61)
     company = String.slice(line, 62..80)
 
-    item =
-      case Enum.find_index(acc, fn item -> item.owner == owner && item.company == company end) do
-        nil ->
-          get_map({type, date, operation, 0, value, cpf, card, time, owner, company})
-          |> struct_acc(nil)
+    case Enum.find_index(acc, fn item -> item.owner == owner && item.company == company end) do
+      nil ->
+        get_map({type, date, operation, 0, value, cpf, card, time, owner, company})
+        |> struct_acc(nil)
 
-        index ->
-          Enum.at(acc, item_index) |> struct_map() |> struct_acc(acc, index)
-      end
+      index ->
+        Enum.at(acc, index) |> struct_map(value) |> struct_acc(acc, index)
+    end
   end
 
   defp match_type("1"), do: {"debito", :entrada}
@@ -80,11 +79,11 @@ defmodule Desafiodev.Reports.Report do
     }
   end
 
-  defp struct_map(map) do
+  defp struct_map(map, value) do
     get_map({
       map.type,
       map.date,
-      operation,
+      map.operation,
       map.balance,
       value,
       map.cpf,
@@ -102,8 +101,8 @@ defmodule Desafiodev.Reports.Report do
 
       index ->
         Enum.map(acc, fn
-          {item, ^index} -> ^map
-          item -> item(nil)
+          {_item, ^index} -> map
+          item -> item
         end)
     end
   end
